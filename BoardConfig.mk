@@ -34,6 +34,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
 BOARD_VENDOR := xiaomi
 
 # Kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
+
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -70,19 +72,8 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
-# Kernel - Default to building from source
-# -----------------------------------------------------
-TARGET_KERNEL_SOURCE := kernel/xiaomi/$(PRODUCT_RELEASE_NAME)
-TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_RELEASE_NAME)_defconfig
-TARGET_KERNEL_CLANG_COMPILE := true
-KERNEL_SUPPORTS_LLVM_TOOLS := true
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
-TARGET_KERNEL_CLANG_VERSION := 13.0.0
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-$(TARGET_KERNEL_CLANG_VERSION)
-TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
-LLVM := 1
-LLVM_IAS := 1
-# -----------------------------------------------------
+# Kenel dtbo
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
 # 12.1 manifest requirements
 TARGET_SUPPORTS_64_BIT_APPS := true
@@ -136,7 +127,7 @@ TW_DEFAULT_BRIGHTNESS := 750
 TW_MAX_BRIGHTNESS := 2047
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
-TW_DEFAULT_LANGUAGE := en
+TW_DEFAULT_LANGUAGE := zh_CN
 TW_NO_SCREEN_BLANK := true
 TARGET_USES_MKE2FS := true
 TW_INPUT_BLACKLIST := "hbtp_vm"

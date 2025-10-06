@@ -57,4 +57,6 @@ endif
 
 # build all the partition tools
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
-#
+
+# Force Prebuilt Kernel
+OF_FORCE_PREBUILT_KERNEL :=1
