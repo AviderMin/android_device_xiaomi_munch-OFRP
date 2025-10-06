@@ -60,3 +60,7 @@ OF_ENABLE_ALL_PARTITION_TOOLS := 1
 
 # Force Prebuilt Kernel
 OF_FORCE_PREBUILT_KERNEL :=1
+
+# OrangeFox Localization Settings
+OF_MAINTAINER=AviderMin
+OF_DEFAULT_TIMEZONE := CST-8
