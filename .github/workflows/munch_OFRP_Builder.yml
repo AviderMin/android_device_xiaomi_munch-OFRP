@@ -121,7 +121,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}
     - name: 📦 处理输出文件
       run: |
-        OUT_DIR=${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/out/target/product/${{ inputs.DEVICE_NAME }}/target/product/${{ inputs.DEVICE_NAME }}
+        OUT_DIR=${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}/out/target/product/${{ inputs.DEVICE_NAME }}
         for f in "$OUT_DIR"/OrangeFox*.img "$OUT_DIR"/OrangeFox*.zip; do
           [ -e "$f" ] || continue
           base=$(basename "$f")
@@ -146,3 +146,4 @@ jobs:
           Device Tree Branch: ${{ inputs.DEVICE_TREE_BRANCH }}
           Commit: Most recent [commit](${{ inputs.DEVICE_TREE }}/commit/${{ env.COMMIT_ID }}) during building.
           Maintainer: ${{ inputs.OF_MAINTAINER }}
+
