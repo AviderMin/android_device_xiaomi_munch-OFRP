@@ -46,9 +46,6 @@ OF_UNBIND_SDCARD_F2FS := 1
 OF_WIPE_METADATA_AFTER_DATAFORMAT := 1
 OF_FBE_METADATA_MOUNT_IGNORE := 1
 
-# avoid MTP issues after data format
-OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1
-
 # refresh encryption props before formatting data
 #  OF_REFRESH_ENCRYPTION_PROPS_BEFORE_FORMAT := 1
 
@@ -60,15 +57,10 @@ endif
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
 
 # OrangeFox Localization Settings
-OF_MAINTAINER=AviderMin
+OF_MAINTAINER := AviderMin
 OF_DEFAULT_TIMEZONE := CST-8
-
-# Dynamic Partition Assist Options
-FOX_USE_DMSETUP := 1
 
 # 减少解密前的存储访问
 OF_REPORT_HARMLESS_MOUNT_ISSUES := 0
 
-#Test
-OF_FIX_DECRYPTION_ON_DATA_MEDIA := 1
-FOX_SKIP_POSTFMT_RESTART := 1
+OF_NO_RELOAD_AFTER_DECRYPTION := 1
