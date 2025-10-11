@@ -36,12 +36,13 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_VANILLA_BUILD=1
-    export FOX_ENABLE_APP_MANAGER=1
 	export FOX_VIRTUAL_AB_DEVICE=1
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 	export FOX_DELETE_INITD_ADDON=1
 	export FOX_SETTINGS_ROOT_DIRECTORY="/persist/OFRP"
+	export FOX_MISCELLANEOUS_ROOT_DIRECTORY="/sdcard"
+	export FOX_ALLOW_EARLY_SETTINGS_LOAD=1
 
     # Dynamic Partition Assist Options
     export FOX_USE_DMSETUP=1
@@ -54,6 +55,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_ZSTD_BINARY=1
 	export FOX_USE_DATE_BINARY=1
     export FOX_DELETE_AROMAFM=1
+	export FOX_ENABLE_APP_MANAGER=1
 	export FOX_USE_NANO_EDITOR=1
 
 	# instruct magiskboot v24+ to always patch the vbmeta header when patching the recovery/boot image; do *not* remove!

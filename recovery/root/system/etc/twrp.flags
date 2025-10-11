@@ -6,7 +6,7 @@
 
 /metadata              	ext4    /dev/block/bootdevice/by-name/metadata                             flags=display="Metadata";backup=1;wrappedkey
 /cust                  	ext4    /dev/block/bootdevice/by-name/cust                                 flags=backup=1;display="Cust";flashimg=1
-/storage       	       	f2fs    /data/media/0                  		     		 	               flags=backup=1;display="Internal Storage";usermrf;fsflags="bind";removable
+/storage       	       	auto    /data/media/0                  		     		 	               flags=backup=1;display="Internal Storage";usermrf;fsflags="utf8";removable
 /cache                  ext4    /dev/block/bootdevice/by-name/rescue                               flags=display="Rescue (Cache)";wipeingui
 
 # Boot
