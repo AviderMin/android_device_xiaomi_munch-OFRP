@@ -58,6 +58,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_ENABLE_APP_MANAGER=1
 	export FOX_USE_NANO_EDITOR=1
 
+	FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk-Alpha/30.4.apk
+
 	# instruct magiskboot v24+ to always patch the vbmeta header when patching the recovery/boot image; do *not* remove!
         export FOX_PATCH_VBMETA_FLAG="1"
 
