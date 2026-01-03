@@ -1,4 +1,4 @@
-name: 🦊 OrangeFox for marble - 构建
+name: 🦊 OrangeFox for munch - 构建
 
 # Credits to:
 # https://github.com/TeamWin
@@ -164,3 +164,4 @@ jobs:
           Device Tree Branch: ${{ inputs.DEVICE_TREE_BRANCH }}
           Commit: Most recent [commit](${{ inputs.DEVICE_TREE }}/commit/${{ env.COMMIT_ID }}) during building.
           Maintainer: ${{ inputs.OF_MAINTAINER }}
+
