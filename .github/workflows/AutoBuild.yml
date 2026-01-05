@@ -1,4 +1,4 @@
-name: 🦊 OrangeFox for munch - 月度构建
+name: 🦊 OrangeFox for munch - 月度自动构建
 
 # Credits to:
 # https://github.com/TeamWin
@@ -9,6 +9,7 @@ on:
   schedule:
     # UTC 16:00 = 北京时间 每月 1 日 00:00
     - cron: '0 16 1 * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -132,7 +133,18 @@ jobs:
 
       - name: 📦 规范化输出文件名
         run: |
-          OUT_DIR=${GITHUB_WORKSPACE}/OrangeFox/fox_${MANIFEST_BRANCH}/out/target/product/${DEVICE_NAME}
+          BASE_OUT=${GITHUB_WORKSPACE}/OrangeFox/fox_${MANIFEST_BRANCH}/out/target/product/${DEVICE_NAME}
+
+          echo "Searching OrangeFox output directory under: $BASE_OUT"
+
+          OUT_DIR=$(find "$BASE_OUT" -maxdepth 2 -type d -name "$DEVICE_NAME" | head -n 1)
+
+          if [[ -z "$OUT_DIR" ]]; then
+            echo "ERROR: Cannot find output directory for device ${DEVICE_NAME}"
+            exit 1
+          fi
+
+          echo "Using OUT_DIR=$OUT_DIR"
 
           for f in "$OUT_DIR"/OrangeFox*.img "$OUT_DIR"/OrangeFox*.zip; do
             [ -e "$f" ] || continue
@@ -148,8 +160,8 @@ jobs:
           tag_name: monthly-${{ env.BUILD_DATE }}
           name: OrangeFox Recovery for munch // ${{ env.BUILD_DATE }}
           files: |
-            OrangeFox/**/out/target/product/**/OrangeFox*.img
-            OrangeFox/**/out/target/product/**/OrangeFox*.zip
+            OrangeFox/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/**/OrangeFox*.img
+            OrangeFox/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/**/OrangeFox*.zip
           body: |
             ## OrangeFox Recovery Build (Automated)
 
