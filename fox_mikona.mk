@@ -58,4 +58,3 @@ OF_ENABLE_ALL_PARTITION_TOOLS := 1
 
 # OrangeFox Localization Settings
 OF_MAINTAINER := AviderMin
-OF_DEFAULT_TIMEZONE := CST-8
