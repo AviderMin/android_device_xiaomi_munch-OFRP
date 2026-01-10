@@ -43,6 +43,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_SETTINGS_ROOT_DIRECTORY="/metadata/OFRP"
 	export FOX_MISCELLANEOUS_ROOT_DIRECTORY="/sdcard"
 	export FOX_ALLOW_EARLY_SETTINGS_LOAD=1
+	
+    # Move the Magisk installer/uninstaller ZIP to the ramdisk
+	export FOX_MOVE_MAGISK_INSTALLER_TO_RAMDISK=1
 
     # Dynamic Partition Assist Options
     export FOX_USE_DMSETUP=1
